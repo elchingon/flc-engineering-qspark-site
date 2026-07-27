@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">FLC Engineering Q-SPARK placeholder logo</title>
+  <desc id="desc">Blue circular quantum orbit mark with Q-SPARK initials.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#76dcff"/>
+      <stop offset="1" stop-color="#1684d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="24" fill="#06182f"/>
+  <circle cx="48" cy="48" r="27" fill="none" stroke="url(#g)" stroke-width="4"/>
+  <ellipse cx="48" cy="48" rx="38" ry="13" fill="none" stroke="#76dcff" stroke-width="3" opacity=".9" transform="rotate(32 48 48)"/>
+  <ellipse cx="48" cy="48" rx="38" ry="13" fill="none" stroke="#1684d8" stroke-width="3" opacity=".9" transform="rotate(-32 48 48)"/>
+  <circle cx="73" cy="32" r="5" fill="#76dcff"/>
+  <circle cx="23" cy="55" r="4" fill="#1684d8"/>
+  <text x="48" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#fff">Q</text>
+</svg>

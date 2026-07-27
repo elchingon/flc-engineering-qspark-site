@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Lite | FLC Engineering Q-SPARK</title>
+  <meta name="description" content="Static-site helper for preparing new Q-SPARK video entries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/logo/qspark-logo-placeholder.svg" alt="FLC Engineering Q-SPARK logo" class="brand-logo">
+        <span><strong>FLC Engineering</strong><small>Q-SPARK Admin Lite</small></span>
+      </a>
+      <nav class="site-nav always-open"><a href="index.html">Back to site</a></nav>
+    </div>
+  </header>
+  <main class="section admin-main">
+    <div class="container admin-grid">
+      <section class="admin-card">
+        <p class="eyebrow">Static MVP helper</p>
+        <h1>Add a video entry</h1>
+        <p>This page does not provide secure authentication because the site is static HTML/JS. It helps an editor generate updated JSON for <code>data/videos.json</code>.</p>
+        <form id="videoForm" class="admin-form">
+          <label>Title<input name="title" required placeholder="Understanding Quantum Demo"></label>
+          <label>Presenter<input name="presenter" placeholder="Dr. Jeff Jessing"></label>
+          <label>Description<textarea name="description" required placeholder="Short description of the video."></textarea></label>
+          <label>Video URL<input name="url" required placeholder="https://youtu.be/... or assets/videos/file.mp4"></label>
+          <label>Type<select name="type"><option value="workshop">Workshop</option><option value="demo">Demo</option><option value="trailer">Trailer</option></select></label>
+          <label>School / audience<input name="audience" placeholder="Ignacio High School"></label>
+          <button class="button primary" type="submit">Add to draft JSON</button>
+        </form>
+      </section>
+      <section class="admin-card">
+        <h2>Draft videos.json</h2>
+        <p>Copy this output into <code>data/videos.json</code>, or use the download button.</p>
+        <textarea id="jsonOutput" class="json-output" spellcheck="false"></textarea>
+        <div class="stacked-actions compact-actions">
+          <button class="button secondary" id="downloadJson" type="button">Download videos.json</button>
+          <button class="button ghost" id="resetDraft" type="button">Reset draft</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

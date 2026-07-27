@@ -1,0 +1,1 @@
+Place local MP4 files in this folder only if you want to self-host videos. For public pages, YouTube, Vimeo, or FLC-hosted media links are usually better because they avoid bandwidth and browser compatibility issues.

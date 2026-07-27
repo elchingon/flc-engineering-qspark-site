@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FLC Engineering Q-SPARK | Quantum Learning for the Four Corners</title>
+  <meta name="description" content="Fort Lewis College Engineering Q-SPARK connects students, teachers, and regional communities to hands-on quantum computing education, workshops, and research pathways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="FLC Engineering Q-SPARK home">
+        <img src="assets/logo/qspark-logo-placeholder.svg" alt="FLC Engineering Q-SPARK logo" class="brand-logo">
+        <span>
+          <strong>FLC Engineering</strong>
+          <small>Q-SPARK</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" data-nav>
+        <a href="#program">Program</a>
+        <a href="videos.html">Videos</a>
+        <a href="#events">Workshops</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact">Contact</a>
+        <a href="admin.html" class="nav-admin">Admin Lite</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Fort Lewis College Engineering Department</p>
+          <h1>Quantum learning for Southwest Colorado and the Four Corners.</h1>
+          <p class="hero-text">FLC Engineering Q-SPARK brings hands-on quantum workshops, mobile lab outreach, student research, and classroom-ready demos to regional students and educators.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#events">Sign up for a workshop</a>
+            <a class="button secondary" href="videos.html">Watch workshop videos</a>
+          </div>
+          <p class="note">Questions? Email <a href="mailto:flcspark@fortlewis.edu">flcspark@fortlewis.edu</a>.</p>
+        </div>
+        <div class="hero-card" aria-label="Quantum workshop highlight">
+          <div class="orbit" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="stat-row">
+            <strong>Q-SPARK</strong>
+            <span>Hands-on quantum education</span>
+          </div>
+          <div class="hero-panel-grid">
+            <div><strong>Workshops</strong><span>High school + college</span></div>
+            <div><strong>Mobile Labs</strong><span>Rural outreach</span></div>
+            <div><strong>Research</strong><span>Paid student roles</span></div>
+            <div><strong>Pathways</strong><span>Engineering + STEM</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Program overview</p>
+          <h2>Built by FLC Engineering to make quantum approachable.</h2>
+        </div>
+        <div class="copy-block">
+          <p>Fort Lewis College is a partner in Elevate Quantum, the U.S. Department of Commerce-designated Quantum Tech Hub for the Mountain West. Through Q-SPARK, FLC expands access to quantum education with workshops, mobile computer lab outreach, faculty-developed curriculum, and applied research opportunities.</p>
+          <p>The program creates early pathways into quantum computing, engineering, and advanced STEM fields for students across Southwest Colorado and the Four Corners region.</p>
+        </div>
+      </div>
+      <div class="container card-grid feature-grid">
+        <article class="feature-card">
+          <span class="icon">01</span>
+          <h3>Quantum workshops</h3>
+          <p>Introductory and advanced sessions for high school and college students using visuals, demos, software, and games.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">02</span>
+          <h3>Mobile lab outreach</h3>
+          <p>Computer-lab-based outreach designed to reach rural and regional schools across Southwest Colorado.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">03</span>
+          <h3>Student research</h3>
+          <p>Paid undergraduate research and student instructor roles help FLC students build real experience in emerging technologies.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section blue-section" id="featured-video">
+      <div class="container split align-start">
+        <div>
+          <p class="eyebrow">Featured video</p>
+          <h2>Preview a Q-SPARK workshop.</h2>
+          <p class="section-intro light">The home page shows one featured video from <code>data/videos.json</code>. Mark any video with <code>"featured": true</code> to change this preview.</p>
+          <a class="button secondary" href="videos.html">View all videos</a>
+        </div>
+        <div id="featuredVideo" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="container split align-start">
+        <div>
+          <p class="eyebrow">Workshops + events</p>
+          <h2>Bring Q-SPARK to your classroom or campus event.</h2>
+          <p class="section-intro">Use the signup button for workshop requests, student registrations, or teacher interest. Replace the placeholder form link in <code>data/site.json</code> when ready.</p>
+          <div class="stacked-actions">
+            <a class="button primary" id="signupLink" href="#" target="_blank" rel="noopener">Sign up or request a workshop</a>
+            <a class="button ghost" href="mailto:flcspark@fortlewis.edu?subject=Q-SPARK%20Workshop%20Interest">Email FLC Q-SPARK</a>
+          </div>
+        </div>
+        <div class="event-list" id="eventList"></div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="photos">
+      <div class="container section-heading">
+        <p class="eyebrow">Photos</p>
+        <h2>Outreach in action</h2>
+        <p>Drop approved photos into <code>assets/photos/</code> and update <code>data/photos.json</code>. These placeholders are ready to be replaced.</p>
+      </div>
+      <div class="container gallery-grid" id="photoGrid"></div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="container impact-wrap">
+        <div>
+          <p class="eyebrow">Regional impact</p>
+          <h2>Workforce pathways start with accessible first experiences.</h2>
+          <p>Q-SPARK supports regional STEM education by connecting students, educators, and communities to quantum information science and technology. The program is designed to build awareness, confidence, and future readiness in quantum computing and engineering.</p>
+        </div>
+        <div class="impact-list">
+          <div><strong>Rural access</strong><span>Outreach for regional and underserved communities.</span></div>
+          <div><strong>Teacher-ready content</strong><span>Faculty-developed curriculum and classroom activities.</span></div>
+          <div><strong>Future careers</strong><span>Early exposure to quantum, engineering, and advanced STEM fields.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Connect with FLC Engineering Q-SPARK.</h2>
+          <p>Ask about workshops, classroom visits, guest speakers, student research, and regional education partnerships.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:flcspark@fortlewis.edu">flcspark@fortlewis.edu</a>
+          <a class="button secondary" href="https://www.fortlewis.edu/quantum/" target="_blank" rel="noopener">Official FLC page</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>FLC Engineering Q-SPARK</strong>
+        <p>A custom outreach website starter for the Fort Lewis College Engineering Department.</p>
+      </div>
+      <div>
+        <p>This demo uses publicly available program information from the Fort Lewis College Elevate Quantum page. Replace placeholder assets before public launch.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

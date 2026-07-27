@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Videos | FLC Engineering Q-SPARK</title>
+  <meta name="description" content="FLC Engineering Q-SPARK workshop and demo video library.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="FLC Engineering Q-SPARK home">
+        <img src="assets/logo/qspark-logo-placeholder.svg" alt="FLC Engineering Q-SPARK logo" class="brand-logo">
+        <span>
+          <strong>FLC Engineering</strong>
+          <small>Q-SPARK</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" data-nav>
+        <a href="index.html#program">Program</a>
+        <a href="videos.html">Videos</a>
+        <a href="index.html#events">Workshops</a>
+        <a href="index.html#impact">Impact</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="admin.html" class="nav-admin">Admin Lite</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container section-heading">
+        <p class="eyebrow">Workshop media</p>
+        <h1>Q-SPARK video library</h1>
+        <p>Add YouTube, Vimeo, hosted MP4, or local MP4 links in <code>data/videos.json</code>. Cards are generated automatically.</p>
+      </div>
+    </section>
+
+    <section class="section blue-section videos-page-section">
+      <div class="container filters" aria-label="Video filters">
+        <button class="chip active" type="button" data-filter="all">All</button>
+        <button class="chip" type="button" data-filter="demo">Demos</button>
+        <button class="chip" type="button" data-filter="workshop">Workshops</button>
+        <button class="chip" type="button" data-filter="trailer">Trailers</button>
+      </div>
+      <div class="container video-grid" id="videoGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section contact-section video-contact-section">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Add or request videos</p>
+          <h2>Have another Q-SPARK workshop video?</h2>
+          <p>Use Admin Lite to generate a new JSON entry, then paste it into <code>data/videos.json</code>. For secure browser-based admin editing, add a backend or CMS in the next version.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="admin.html">Open Admin Lite</a>
+          <a class="button secondary" href="mailto:flcspark@fortlewis.edu">Email Q-SPARK</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>FLC Engineering Q-SPARK</strong>
+        <p>A custom outreach website starter for the Fort Lewis College Engineering Department.</p>
+      </div>
+      <div>
+        <p>Videos load from <code>data/videos.json</code>. YouTube short links such as <code>https://youtu.be/SgOfBYQRF2M</code> are automatically converted to embeds.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

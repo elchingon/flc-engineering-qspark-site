@@ -1,7 +1,7 @@
 [
   {
     "title": "Quantum coding solving mazes",
-    "presenter": "Dr. Ben Afflerbach,",
+    "presenter": "Dr. Ben Afflerbach",
     "description": "Fort Lewis College Q-SPARK program and Animas High School collaboration to provide quantum learning workshop. FLC Professor, Dr. Ben Afflerbach, teaches quantum through solving mazes. For more information, go to www.fortlewis.edu/quantum\n",
     "url": "https://youtu.be/SgOfBYQRF2M",
     "type": "workshop",
@@ -11,5 +11,45 @@
       "Animas High School"
     ],
     "featured": true
+  },
+  {
+    "title": "Quantum Demonstration, Fort Lewis College Professor Jeff Jessing",
+    "presenter": "Professor Jeff Jessing",
+    "description": "Fort Lewis College Q-SPARK program provides quantum learning workshops. FLC Professor, Professor Jeff Jessing, demonstrates quantum concepts with superconductors. For more information, go to www.fortlewis.edu/quantum\n",
+    "url": "https://youtu.be/XVqBv9UQCwM",
+    "type": "workshop",
+    "audience": "Fort Lewis College",
+    "tags": [
+      "workshop",
+      "Fort Lewis College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Quantum Mechanics, Fort Lewis College Professor Jeff Jessing",
+    "presenter": "Professor Jeff Jessing",
+    "description": "Fort Lewis College Q-SPARK program provides quantum learning workshops. FLC Professor, Professor Jeff Jessing, demonstrates quantum Mechanics concepts. For more information, go to www.fortlewis.edu/quantum\n",
+    "url": "https://youtu.be/kcOdHXxK-WU",
+    "type": "workshop",
+    "audience": "Fort Lewis College",
+    "tags": [
+      "workshop",
+      "Fort Lewis College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Quantum Particles, Waves, Superposition, Fort Lewis College Q-SPARK program",
+    "presenter": "Lucien Verrone",
+    "description": "Fort Lewis College Q-SPARK workshop presents at Animas High School. FLC Physics and Engineering graduate Lucien Verrone teaches on particles, waves, and superposition in quantum mechanics.\n",
+    "url": "https://youtu.be/-p4DL0l6xPY",
+    "type": "workshop",
+    "audience": "Animas High School",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Animas High School"
+    ],
+    "featured": false
   }
 ]

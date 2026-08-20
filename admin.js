@@ -1,5 +1,7 @@
 const qs = (selector, scope = document) => scope.querySelector(selector);
 
+document.querySelectorAll('[data-year]').forEach((slot) => { slot.textContent = String(new Date().getFullYear()); });
+
 const form = qs('#videoForm');
 const output = qs('#jsonOutput');
 const downloadButton = qs('#downloadJson');

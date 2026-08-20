@@ -11,6 +11,8 @@ if (navToggle && nav) {
   qsa('a', nav).forEach((link) => link.addEventListener('click', () => nav.classList.remove('open')));
 }
 
+qsa('[data-year]').forEach((slot) => { slot.textContent = String(new Date().getFullYear()); });
+
 function escapeHtml(value = '') {
   return String(value).replace(/[&<>"']/g, (char) => ({
     '&': '&amp;',

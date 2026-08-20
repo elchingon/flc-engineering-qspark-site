@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Videos | FLC Engineering Q-SPARK</title>
   <meta name="description" content="FLC Engineering Q-SPARK workshop and demo video library.">
+  <link rel="icon" href="assets/logo/qspark-mark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,10 +16,10 @@
   <header class="site-header" data-header>
     <div class="container nav-wrap">
       <a class="brand" href="index.html" aria-label="FLC Engineering Q-SPARK home">
-        <img src="assets/logo/qspark-logo-placeholder.svg" alt="FLC Engineering Q-SPARK logo" class="brand-logo">
+        <img src="assets/logo/qspark-mark.png" alt="" class="brand-logo" width="412" height="206">
         <span>
-          <strong>FLC Engineering</strong>
-          <small>Q-SPARK</small>
+          <strong>Q-SPARK</strong>
+          <small>Fort Lewis College Engineering</small>
         </span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
@@ -26,9 +27,9 @@
       </button>
       <nav class="site-nav" data-nav>
         <a href="index.html#program">Program</a>
-        <a href="videos.html">Videos</a>
         <a href="index.html#events">Workshops</a>
-        <a href="index.html#impact">Impact</a>
+        <a href="videos.html">Videos</a>
+        <a href="index.html#photos">Photos</a>
         <a href="index.html#contact">Contact</a>
         <a href="admin.html" class="nav-admin">Admin Lite</a>
       </nav>
@@ -40,7 +41,7 @@
       <div class="container section-heading">
         <p class="eyebrow">Workshop media</p>
         <h1>Q-SPARK video library</h1>
-        <p>Add YouTube, Vimeo, hosted MP4, or local MP4 links in <code>data/videos.json</code>. Cards are generated automatically.</p>
+        <p>Workshop sessions, demos, and trailers from FLC Engineering Q-SPARK.</p>
       </div>
     </section>
 
@@ -57,12 +58,12 @@
     <section class="section contact-section video-contact-section">
       <div class="container contact-card">
         <div>
-          <p class="eyebrow">Add or request videos</p>
-          <h2>Have another Q-SPARK workshop video?</h2>
-          <p>Use Admin Lite to generate a new JSON entry, then paste it into <code>data/videos.json</code>. For secure browser-based admin editing, add a backend or CMS in the next version.</p>
+          <p class="eyebrow">Request a session</p>
+          <h2>Want a Q-SPARK workshop at your school?</h2>
+          <p>Teachers, schools, and community partners can request a hands-on quantum session or classroom visit.</p>
         </div>
         <div class="contact-actions">
-          <a class="button primary" href="admin.html">Open Admin Lite</a>
+          <a class="button primary" href="index.html#events">Request a workshop</a>
           <a class="button secondary" href="mailto:flcspark@fortlewis.edu">Email Q-SPARK</a>
         </div>
       </div>
@@ -71,13 +72,37 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
+      <div class="footer-brand">
+        <img src="assets/logo/flc-logo.png" alt="Fort Lewis College" class="footer-logo" width="454" height="160">
         <strong>FLC Engineering Q-SPARK</strong>
-        <p>A custom outreach website starter for the Fort Lewis College Engineering Department.</p>
+        <p>Hands-on quantum education for students, teachers, and communities across Southwest Colorado and the Four Corners.</p>
       </div>
-      <div>
-        <p>Videos load from <code>data/videos.json</code>. YouTube short links such as <code>https://youtu.be/SgOfBYQRF2M</code> are automatically converted to embeds.</p>
+      <div class="footer-links">
+        <span class="footer-heading">Explore</span>
+        <ul>
+          <li>
+            <a href="https://www.fortlewis.edu/quantum" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"></path></svg>
+              FLC Quantum at Fort Lewis College
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@FLCQSPARK" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"></path></svg>
+              Q-SPARK on YouTube
+            </a>
+          </li>
+        </ul>
       </div>
+      <div class="footer-contact">
+        <span class="footer-heading">Get in touch</span>
+        <p>Workshops, classroom visits, student research, and partnerships.</p>
+        <a class="button primary" href="index.html#contact">Contact Q-SPARK</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year>2026</span> Fort Lewis College Engineering Q-SPARK. All rights reserved.</p>
+      <p>Fort Lewis College Engineering Department &middot; Durango, Colorado</p>
     </div>
   </footer>
 

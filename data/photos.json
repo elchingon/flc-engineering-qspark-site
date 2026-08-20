@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "src": "assets/photos/workshop-group.jpg",
+    "alt": "High school students and Q-SPARK instructors standing together at the end of a quantum computing workshop in a Fort Lewis College computer lab",
+    "title": "High school quantum workshop",
+    "caption": "Students from across the Four Corners spend a day building intuition for qubits, superposition, and quantum algorithms in an FLC Engineering computer lab."
+  }
+]

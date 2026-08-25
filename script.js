@@ -105,6 +105,136 @@ function photoCard(photo) {
     </article>`;
 }
 
+const SLIDESHOW_MAX = 10;
+const SLIDESHOW_INTERVAL = 6000;
+
+// Fisher-Yates on a copy, so the source list keeps its authored order.
+function shuffle(items) {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function slideMarkup(photo, index) {
+  return `
+    <figure class="slide${index === 0 ? ' is-active' : ''}" role="group" aria-roledescription="slide" aria-hidden="${index === 0 ? 'false' : 'true'}">
+      <span class="slide-backdrop" aria-hidden="true"></span>
+      <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || photo.title || '')}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+      <figcaption>
+        <h3>${escapeHtml(photo.title || '')}</h3>
+        <p>${escapeHtml(photo.caption || '')}</p>
+      </figcaption>
+    </figure>`;
+}
+
+function buildSlideshow(root, photos) {
+  const dots = photos
+    .map((photo, index) => `<button type="button" class="slide-dot${index === 0 ? ' is-active' : ''}" data-slide-to="${index}" aria-label="Show photo ${index + 1} of ${photos.length}: ${escapeHtml(photo.title || '')}"></button>`)
+    .join('');
+
+  root.innerHTML = `
+    <div class="slideshow-frame" data-slides>
+      ${photos.map(slideMarkup).join('')}
+      <button type="button" class="slide-arrow prev" data-slide-step="-1" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"></path></svg>
+      </button>
+      <button type="button" class="slide-arrow next" data-slide-step="1" aria-label="Next photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"></path></svg>
+      </button>
+    </div>
+    <div class="slideshow-controls">
+      <button type="button" class="slide-play" data-slide-play aria-label="Pause slideshow"><span aria-hidden="true">Pause</span></button>
+      <div class="slide-dots">${dots}</div>
+      <p class="slide-count" role="status" aria-live="polite">Photo 1 of ${photos.length}</p>
+    </div>`;
+
+  // Blurred fill behind letterboxed shots, so portrait and landscape photos can
+  // share one frame without cropping faces out of the picture.
+  qsa('.slide', root).forEach((slide) => {
+    const src = qs('img', slide).getAttribute('src');
+    qs('.slide-backdrop', slide).style.backgroundImage = `url("${src}")`;
+  });
+}
+
+function initSlideshow(root, allPhotos) {
+  const photos = shuffle(allPhotos).slice(0, SLIDESHOW_MAX);
+  buildSlideshow(root, photos);
+
+  const slides = qsa('.slide', root);
+  const dots = qsa('.slide-dot', root);
+  const count = qs('.slide-count', root);
+  const playButton = qs('[data-slide-play]', root);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+  let timer = null;
+  let paused = reduceMotion.matches;
+
+  function show(next) {
+    current = (next + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('is-active', index === current);
+      slide.setAttribute('aria-hidden', String(index !== current));
+    });
+    dots.forEach((dot, index) => dot.classList.toggle('is-active', index === current));
+    count.textContent = `Photo ${current + 1} of ${slides.length}`;
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function start() {
+    stop();
+    if (paused || slides.length < 2) return;
+    timer = setInterval(() => show(current + 1), SLIDESHOW_INTERVAL);
+  }
+
+  function setPaused(value) {
+    paused = value;
+    playButton.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
+    qs('span', playButton).textContent = paused ? 'Play' : 'Pause';
+    start();
+  }
+
+  root.addEventListener('click', (event) => {
+    const step = event.target.closest('[data-slide-step]');
+    if (step) {
+      show(current + Number(step.dataset.slideStep));
+      start();
+      return;
+    }
+    const dot = event.target.closest('[data-slide-to]');
+    if (dot) {
+      show(Number(dot.dataset.slideTo));
+      start();
+      return;
+    }
+    if (event.target.closest('[data-slide-play]')) setPaused(!paused);
+  });
+
+  root.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') show(current - 1);
+    else if (event.key === 'ArrowRight') show(current + 1);
+    else return;
+    event.preventDefault();
+    start();
+  });
+
+  // Hold the current photo while someone is reading or tabbing through it.
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  reduceMotion.addEventListener('change', (event) => setPaused(event.matches));
+
+  setPaused(paused);
+}
+
 async function loadJson(path, fallback) {
   try {
     const response = await fetch(path, { cache: 'no-store' });
@@ -151,6 +281,12 @@ async function init() {
   if (photoGrid) {
     if (photos.length) photoGrid.innerHTML = photos.map(photoCard).join('');
     else photoGrid.closest('section')?.classList.add('is-empty');
+  }
+
+  const photoSlideshow = qs('#photoSlideshow');
+  if (photoSlideshow) {
+    if (photos.length) initSlideshow(photoSlideshow, photos);
+    else photoSlideshow.closest('section')?.classList.add('is-empty');
   }
 
   const signup = qs('#signupLink');

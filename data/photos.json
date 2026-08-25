@@ -1,8 +1,92 @@
 [
   {
-    "src": "assets/photos/workshop-group.jpg",
-    "alt": "High school students and Q-SPARK instructors standing together at the end of a quantum computing workshop in a Fort Lewis College computer lab",
+    "src": "assets/photos/M.%20Welz%20group%20shot.jpg",
+    "alt": "Q-SPARK workshop group standing together in front of a whiteboard in a Fort Lewis College computer lab",
     "title": "High school quantum workshop",
     "caption": "Students from across the Four Corners spend a day building intuition for qubits, superposition, and quantum algorithms in an FLC Engineering computer lab."
+  },
+  {
+    "src": "assets/photos/J.%20Jessing%20group%20shot.jpg",
+    "alt": "Workshop group in white cleanroom coats, hairnets, and gloves posing in front of a slide about superconductivity",
+    "title": "Cleanroom crew",
+    "caption": "Participants gear up in cleanroom garb before touring the fabrication lab and seeing how silicon devices are actually made."
+  },
+  {
+    "src": "assets/photos/Matt%20Welz%20explains%20quantum.jpg",
+    "alt": "Matt Welz presenting quantum concepts to students seated at computer workstations",
+    "title": "Matt Welz explains quantum",
+    "caption": "Sessions pair short lectures with hands-on time at the keyboard, so ideas land while students are still working through them."
+  },
+  {
+    "src": "assets/photos/Dr.%20Jessing%20talks%20superconductors.jpg",
+    "alt": "Dr. Jessing holding up a sample while presenting a slide on manufacturing silicon wafers to a seated class",
+    "title": "Dr. Jessing talks superconductors",
+    "caption": "From superconductors to wafer manufacturing, faculty connect quantum theory to the hardware students can hold in their hands."
+  },
+  {
+    "src": "assets/photos/Wafer%20thin.jpg",
+    "alt": "Instructor holding up a small wafer container in front of a whiteboard covered in dimension notes",
+    "title": "Wafer thin",
+    "caption": "A silicon wafer makes the scale real: microns on the whiteboard, and a device you can pass around the room."
+  },
+  {
+    "src": "assets/photos/Suiting%20up%20for%20lab.jpg",
+    "alt": "Students pulling on cleanroom coats, hairnets, and shoe covers in a hallway outside the lab",
+    "title": "Suiting up for lab",
+    "caption": "Gowning up outside the cleanroom — the first step of a lab tour most students have never had access to before."
+  },
+  {
+    "src": "assets/photos/Lab%20group.jpg",
+    "alt": "Group of students and instructors in cleanroom coats and hairnets, holding gloves, ready to enter the lab",
+    "title": "Ready for the tour",
+    "caption": "Gloves on, hairnets up, and a full group ready to walk the fabrication lab at Fort Lewis College."
+  },
+  {
+    "src": "assets/photos/In%20the%20lab.jpg",
+    "alt": "Students in cleanroom coats gathered around lab equipment under amber cleanroom lighting",
+    "title": "Inside the cleanroom",
+    "caption": "Under the amber lights of the photolithography bay, students watch device fabrication step by step."
+  },
+  {
+    "src": "assets/photos/In%20the%20lab%201.jpg",
+    "alt": "Instructor at a whiteboard leading a session in a bright computer lab full of students at workstations",
+    "title": "Working the problem",
+    "caption": "Quantum concepts get worked out on the board and then tried immediately on the machines in the room."
+  },
+  {
+    "src": "assets/photos/Summer%20workshop-%20Welz.jpg",
+    "alt": "Matt Welz walking the aisle of the Andrew J. Senti Laboratory while students work at computers",
+    "title": "Summer workshop",
+    "caption": "One-on-one help as students work through quantum programming exercises in the Andrew J. Senti Laboratory."
+  },
+  {
+    "src": "assets/photos/Learning%20quantum.jpg",
+    "alt": "Two students at a computer workstation looking toward the front of the classroom during a session",
+    "title": "Learning quantum",
+    "caption": "Workshops stay small enough that every participant gets time at a machine and time with an instructor."
+  },
+  {
+    "src": "assets/photos/Learning%20quantum%201.jpg",
+    "alt": "Two students working together at a computer beneath the Andrew J. Senti Laboratory sign",
+    "title": "Side by side",
+    "caption": "Paired work is the default: students debug circuits together and talk through what the results mean."
+  },
+  {
+    "src": "assets/photos/Boden%20Nachtrieb%20%26%20Soren%20Welz.jpg",
+    "alt": "Boden Nachtrieb and Soren Welz working at computer workstations in an FLC Engineering lab",
+    "title": "Boden Nachtrieb & Soren Welz",
+    "caption": "Student participants working through a quantum computing exercise during a Q-SPARK session."
+  },
+  {
+    "src": "assets/photos/Jessing%201.jpg",
+    "alt": "Dr. Jessing presenting to students seated at lab benches with a projected slide behind him",
+    "title": "Classroom session",
+    "caption": "Faculty-developed curriculum walks students from the basics of quantum mechanics to real applications."
+  },
+  {
+    "src": "assets/photos/Jessing%20asking%20questions.jpg",
+    "alt": "Dr. Jessing standing at the whiteboard asking questions of students seated around a lab table",
+    "title": "Asking the questions",
+    "caption": "Discussion-driven sessions: students are asked to reason out loud before the answer goes on the board."
   }
 ]

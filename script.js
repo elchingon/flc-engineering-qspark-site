@@ -289,8 +289,11 @@ async function init() {
     else photoSlideshow.closest('section')?.classList.add('is-empty');
   }
 
-  const signup = qs('#signupLink');
-  if (signup && site.signupUrl) signup.href = site.signupUrl;
+  if (site.signupUrl) {
+    qsa('[data-signup-link]').forEach((link) => {
+      link.href = site.signupUrl;
+    });
+  }
 
   qsa('[data-filter]').forEach((button) => {
     button.addEventListener('click', () => {

@@ -1,6 +1,6 @@
 # FLC Engineering Q-SPARK Static Website
 
-A ZIP-ready static website for the Fort Lewis College Engineering Department Q-SPARK / Elevate Quantum outreach project.
+A ZIP-ready static website for the Fort Lewis College Physics and Engineering Department Q-SPARK / Elevate Quantum outreach project.
 
 ## What changed in this version
 

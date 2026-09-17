@@ -48,7 +48,7 @@ code { background: rgba(2, 125, 196, .1); padding: .08rem .35rem; border-radius:
 .brand strong { font-size: 1.02rem; letter-spacing: -.02em; }
 .brand small { color: var(--blue-800); font-weight: 700; letter-spacing: .07em; text-transform: uppercase; font-size: .6rem; margin-top: .28rem; }
 .site-nav { display: flex; align-items: center; gap: 1rem; }
-.site-nav a { color: var(--blue-900); text-decoration: none; font-weight: 700; font-size: .86rem; }
+.site-nav a { color: var(--blue-900); text-decoration: none; font-weight: 700; font-size: .86rem; white-space: nowrap; }
 .site-nav a:hover { color: var(--blue-700); }
 .nav-admin { padding: .42rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); }
 .nav-toggle { display: none; border: 0; background: transparent; width: 42px; height: 42px; padding: 8px; }
@@ -203,6 +203,30 @@ h3 { font-size: 1.02rem; letter-spacing: -.01em; }
 .slide-count { margin: 0; color: var(--muted); font-size: .8rem; font-weight: 700; }
 .slide-arrow:focus-visible, .slide-dot:focus-visible, .slide-play:focus-visible { outline: 3px solid var(--gold-500); outline-offset: 2px; }
 
+/* Testimonials: the teacher quote leads, the longest student quote spans two rows */
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.testimonial {
+  position: relative;
+  display: flex; flex-direction: column; gap: 1.1rem;
+  margin: 0; padding: 1.4rem 1.35rem 1.3rem;
+  background: #170c4d;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.testimonial::before { content: "\201C"; display: block; height: 1.6rem; color: var(--gold-500); font-size: 3.4rem; font-weight: 800; line-height: 1; }
+.testimonial.is-featured { grid-column: span 2; background: linear-gradient(135deg, #1d1063, #170c4d 60%); }
+.testimonial.is-featured::after { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--gold-500), var(--blue-500)); }
+.testimonial.is-tall { grid-row: span 2; }
+.testimonial blockquote { margin: 0; }
+.testimonial blockquote p { margin: 0; color: rgba(255, 255, 255, .86); font-size: .95rem; }
+.testimonial.is-featured blockquote p { color: var(--white); font-size: clamp(1rem, 1.4vw, 1.1rem); font-weight: 500; }
+.testimonial-author { display: flex; align-items: center; gap: .7rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .12); }
+.testimonial-initial { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 999px; background: var(--gold-500); color: var(--blue-950); font-weight: 900; font-size: .9rem; }
+.testimonial-author strong, .testimonial-author small { display: block; line-height: 1.25; }
+.testimonial-author strong { color: var(--white); }
+.testimonial-author small { color: var(--gold-500); font-weight: 700; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; margin-top: .15rem; }
+
 .impact-band { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .impact-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 26px; }
 .impact-list div { padding: 1.15rem; }
@@ -247,12 +271,19 @@ h3 { font-size: 1.02rem; letter-spacing: -.01em; }
 .videos-page-section { padding-top: 36px; }
 .video-contact-section { padding-top: 56px; }
 
+/* Keep the full menu on one line just above the hamburger breakpoint */
+@media (min-width: 851px) and (max-width: 1000px) {
+  .site-nav { gap: .7rem; }
+  .site-nav a { font-size: .82rem; }
+}
 @media (max-width: 850px) {
   .nav-toggle { display: block; }
   .site-nav { display: none; position: absolute; left: 20px; right: 20px; top: 72px; background: var(--white); padding: 1rem; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); flex-direction: column; align-items: flex-start; }
   .site-nav.open, .site-nav.always-open { display: flex; }
   .split, .contact-card, .footer-grid, .admin-grid { grid-template-columns: 1fr; }
-  .card-grid, .video-grid, .impact-list { grid-template-columns: 1fr; }
+  .card-grid, .video-grid, .impact-list, .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial.is-featured { grid-column: auto; }
+  .testimonial.is-tall { grid-row: auto; }
   .hero { min-height: 0; padding: 48px 0 44px; }
   .section { padding: 48px 0; }
   .contact-actions { justify-content: flex-start; }

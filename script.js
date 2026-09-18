@@ -97,11 +97,47 @@ function eventCard(event) {
     </article>`;
 }
 
-function photoCard(photo) {
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const PHOTO_DATE = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/;
+
+// Read the parts out of the string rather than through Date: new Date('2026-04-09')
+// is UTC midnight, which renders as the 8th anywhere behind UTC. A month-only
+// date ('2026-07') is allowed for photos where the day isn't known.
+function formatPhotoDate(value = '') {
+  const match = PHOTO_DATE.exec(String(value).trim());
+  if (!match) return '';
+  const month = MONTH_NAMES[Number(match[2]) - 1];
+  if (!month) return '';
+  return match[3] ? `${month} ${Number(match[3])}, ${match[1]}` : `${month} ${match[1]}`;
+}
+
+function photoSortKey(photo) {
+  const match = PHOTO_DATE.exec(String(photo.date || '').trim());
+  if (!match) return -Infinity;
+  return Number(`${match[1]}${match[2]}${match[3] || '00'}`);
+}
+
+// Newest first. Undated photos sink to the bottom, and ties keep the order
+// they were authored in, so data/photos.json stays the tie-breaker.
+function sortPhotosNewestFirst(photos) {
+  return photos
+    .map((photo, index) => ({ photo, index }))
+    .sort((a, b) => photoSortKey(b.photo) - photoSortKey(a.photo) || a.index - b.index)
+    .map((entry) => entry.photo);
+}
+
+function photoCard(photo, index) {
+  const date = formatPhotoDate(photo.date);
   return `
     <article class="photo-card">
-      <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt)}">
-      <div><h3>${escapeHtml(photo.title)}</h3><p>${escapeHtml(photo.caption)}</p></div>
+      <button type="button" class="photo-open" data-photo-index="${index}" aria-label="View full screen: ${escapeHtml(photo.title || photo.alt || 'photo')}">
+        <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt)}" loading="lazy" decoding="async">
+      </button>
+      <div>
+        ${date ? `<p class="photo-date">${escapeHtml(date)}</p>` : ''}
+        <h3>${escapeHtml(photo.title)}</h3>
+        <p>${escapeHtml(photo.caption)}</p>
+      </div>
     </article>`;
 }
 
@@ -235,6 +271,104 @@ function initSlideshow(root, allPhotos) {
   setPaused(paused);
 }
 
+// A <dialog> rather than a hand-rolled overlay: showModal() gives us the focus
+// trap, Esc-to-close, and stacking above the sticky header for free.
+function initLightbox(grid, photos) {
+  if (!photos.length) return;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'lightbox';
+  dialog.innerHTML = `
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close photo viewer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      </button>
+      <div class="lightbox-stage">
+        <img class="lightbox-image" src="" alt="" decoding="async">
+        <button type="button" class="slide-arrow prev" data-lightbox-step="-1" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"></path></svg>
+        </button>
+        <button type="button" class="slide-arrow next" data-lightbox-step="1" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"></path></svg>
+        </button>
+      </div>
+      <div class="lightbox-meta">
+        <p class="lightbox-date"></p>
+        <h2 class="lightbox-title"></h2>
+        <p class="lightbox-caption"></p>
+        <p class="lightbox-count" role="status" aria-live="polite"></p>
+      </div>
+    </div>`;
+  document.body.appendChild(dialog);
+
+  const image = qs('.lightbox-image', dialog);
+  const dateSlot = qs('.lightbox-date', dialog);
+  const titleSlot = qs('.lightbox-title', dialog);
+  const captionSlot = qs('.lightbox-caption', dialog);
+  const countSlot = qs('.lightbox-count', dialog);
+  let current = 0;
+  let opener = null;
+
+  // textContent, not innerHTML: the photo fields land in the DOM as text.
+  function show(next) {
+    current = (next + photos.length) % photos.length;
+    const photo = photos[current];
+    const date = formatPhotoDate(photo.date);
+    image.src = photo.src;
+    image.alt = photo.alt || photo.title || '';
+    dateSlot.textContent = date;
+    dateSlot.hidden = !date;
+    titleSlot.textContent = photo.title || '';
+    captionSlot.textContent = photo.caption || '';
+    countSlot.textContent = `Photo ${current + 1} of ${photos.length}`;
+  }
+
+  grid.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-photo-index]');
+    if (!trigger) return;
+    opener = trigger;
+    show(Number(trigger.dataset.photoIndex));
+    dialog.showModal();
+    document.documentElement.style.overflow = 'hidden';
+  });
+
+  dialog.addEventListener('click', (event) => {
+    const step = event.target.closest('[data-lightbox-step]');
+    if (step) {
+      show(current + Number(step.dataset.lightboxStep));
+      return;
+    }
+    // The dialog fills the viewport, so a click on the dark surround lands here.
+    if (event.target.closest('[data-lightbox-close]') || event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') show(current - 1);
+    else if (event.key === 'ArrowRight') show(current + 1);
+    else return;
+    event.preventDefault();
+  });
+
+  let touchX = 0;
+  let touchY = 0;
+  dialog.addEventListener('touchstart', (event) => {
+    touchX = event.changedTouches[0].clientX;
+    touchY = event.changedTouches[0].clientY;
+  }, { passive: true });
+
+  dialog.addEventListener('touchend', (event) => {
+    const dx = event.changedTouches[0].clientX - touchX;
+    const dy = event.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(current + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  // Fires for the close button, Esc, and the backdrop alike.
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = '';
+    if (opener) opener.focus();
+  });
+}
+
 async function loadJson(path, fallback) {
   try {
     const response = await fetch(path, { cache: 'no-store' });
@@ -279,8 +413,13 @@ async function init() {
 
   const photoGrid = qs('#photoGrid');
   if (photoGrid) {
-    if (photos.length) photoGrid.innerHTML = photos.map(photoCard).join('');
-    else photoGrid.closest('section')?.classList.add('is-empty');
+    const ordered = sortPhotosNewestFirst(photos);
+    if (ordered.length) {
+      photoGrid.innerHTML = ordered.map(photoCard).join('');
+      initLightbox(photoGrid, ordered);
+    } else {
+      renderEmptyState(photoGrid, 'No photos found. Check data/photos.json and make sure the site is served over HTTP, not opened directly as a file.');
+    }
   }
 
   const photoSlideshow = qs('#photoSlideshow');

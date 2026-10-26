@@ -51,5 +51,173 @@
       "Animas High School"
     ],
     "featured": false
+  },
+  {
+    "title": "Fort Lewis College Dr. Matthew Klema on Python to Digital Quantum Computing",
+    "presenter": "Dr. Matthew Klema",
+    "description": "Fort Lewis College Q-SPARK workshop presents at Pueblo Community College.\n",
+    "url": "https://youtu.be/1MUCqi3VdNk",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Logic Control Flow and Quantum Computing, Fort Lewis College Dr. Matthew Klema",
+    "presenter": "Dr. Matthew Klema",
+    "description": "Oct. 2026 at Pueblo Community College SW Campus. FLC Q-SPARK delivers quantum coding workshop.\n",
+    "url": "https://youtu.be/PB6J53pHvHg",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Classical bits",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/zhJgvo997YE",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Logic Gates",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/jkNdL0MdYqo",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Qiskit and Quantum Circuits",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/VtqDEm-tkWw",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Qsphere",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/wa545O4CIDM",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "50% Superposition",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/rIve6Rhw08Y",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Closing quantum lesson",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/CFyCdbx_qz0",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "What does quantum look like?",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/Hkdt4LjhIFs",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Student work area",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/cDMtysDsI0U",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Semiconductor technology: field of the future",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/MmU1oeTfOp8",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
+  },
+  {
+    "title": "Silicon from where?",
+    "presenter": "Dr. Matthew Klema",
+    "description": "October 2026 Fort Lewis College Q-SPARK workshop series at Pueblo Community College SW. FLC Physics & Engineering instructors deliver quantum coding educational workshops.\n",
+    "url": "https://youtu.be/-yc8fLN8gOE",
+    "type": "workshop",
+    "audience": "Pueblo Community College SW Campus",
+    "tags": [
+      "workshop",
+      "Fort Lewis College",
+      "Pueblo Community College"
+    ],
+    "featured": false
   }
 ]
